@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <style>
+    #iframe {
+      width: 100%;
+      height: 50%;
+    }
+  </style>
+
+  <body>
+    <div class="content">
+      <input type="text" />
+      <button id="btn">创建</button>
+    </div>
+    <hr />
+    <input id="fs" type="file" multiple="multiple" />
+    <hr />
+    <button id="fileframe">显示</button>
+    <button id="open">绘制</button>
+    <select name="wid" id="wid">
+      <option value="mobile">移动</option>
+      <option value="web">PC</option>
+    </select>
+    <div id="app"></div>
+    <script>
+      let stack = [];
+      let list = [];
+      let baseY;
+
+      function getlist(root) {
+        list = [];
+        traverse(root);
+        list = JSON.parse(JSON.stringify(list));
+        parent.postMessage(list, "*");
+      }
+
+      function traverse(node) {
+        if (node.nodeName == "SCRIPT") {
+          return;
+        }
+        
+        //获取node信息
+        let nodeinfo = Object();
+        nodeinfo.nodeName = node.nodeName;
+        nodeinfo.lastElementChild = node.lastElementChild + "";
+        nodeinfo.src = node.getAttribute("src");
+        nodeinfo.width = node.getAttribute("width");
+        nodeinfo.height = node.getAttribute("height");
+        nodeinfo.x = node.getAttribute("x");
+        nodeinfo.y = node.getAttribute("y");
+        nodeinfo.fill = node.getAttribute("fill");
+        nodeinfo.style = node.getAttribute("style");
+        nodeinfo.href = node.getAttribute("href");
+        nodeinfo.text = node.innerText;
+
+        //...
+
+        const rect = node.getBoundingClientRect();
+        // 获取css信息
+        let cssinfo = Object();
+        let cs = window.getComputedStyle(node);
+        cssinfo.padding = cs.getPropertyValue("padding");
+        cssinfo.margin = cs.getPropertyValue("margin");
+        cssinfo.x = cs.getPropertyValue("x");
+        cssinfo.y = cs.getPropertyValue("y");
+        cssinfo.width = rect.width;
+        cssinfo.height = rect.height;
+        cssinfo.r = cs.getPropertyValue("color").split("(")[1].split(",")[0];
+        cssinfo.g = cs.getPropertyValue("color").split("(")[1].split(",")[1];
+        cssinfo.b = cs
+          .getPropertyValue("color")
+          .split("(")[1]
+          .split(",")[2]
+          .split(")")[0];
+        cssinfo.a = cs.getPropertyValue("opacity");
+        cssinfo.background = cs.getPropertyValue("background");
+        cssinfo.border = cs.getPropertyValue("border");
+        cssinfo.fontsize = cs.getPropertyValue("font-size");
+        cssinfo.lineheight = cs.getPropertyValue("line-height");
+        cssinfo.fontweight = cs.getPropertyValue("font-weight");
+        cssinfo.postion = cs.getPropertyValue("postion");
+        
+        if (node.nodeName == "BODY") {
+          baseY = rect.y;
+          cssinfo.top = 0;
+        }else {
+          cssinfo.top = rect.y - baseY;
+        }
+        cssinfo.left = rect.x;
+        cssinfo.textalign = cs.getPropertyValue("text-align");
+        cssinfo.display = cs.getPropertyValue("display");
+        cssinfo.boxshadow = cs.getPropertyValue("box-shadow");
+        cssinfo.stroke = cs.getPropertyValue("stroke");
+        cssinfo.fill = cs.getPropertyValue("fill");
+        cssinfo.strokewidth = cs.getPropertyValue("stroke-width");
+        // ...
+
+        //记录信息
+        list.push({
+          id: list.length,
+          nodeinfo: nodeinfo,
+          cssinfo: cssinfo,
+        });
+
+        //获取父节点id
+        if (list.length > 0) {
+          list[list.length - 1].pid = stack[stack.length - 1];
+        }
+
+        // 入栈
+        stack.push(list.length - 1);
+
+        // 遍历子节点
+        for (let i = 0; i < node.children.length; i++) {
+          traverse(node.children[i]);
+        }
+        // 出栈
+        stack.pop();
+      }
+
+      //验证url正确性
+      function CheckUrl(url) {
+        let reg = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+        return !!reg.test(url);
+      }
+
+      //根据url创建子窗口 没用到
+      function createIframe(url) {
+        var iframe = document.getElementById("iframe");
+        if (iframe) {
+          // 如果存在，则替换地址
+          iframe.src = url;
+        } else {
+          // 不存在则新建
+          iframe = document.createElement("iframe");
+          iframe.id = "iframe";
+          iframe.src = url;
+          document.body.appendChild(iframe);
+        }
+        iframe.onload = function () {
+          list = [];
+          // getlist(iframe.contentWindow.document.documentElement);
+        };
+      }
+
+      // 此按钮打开url
+      document.getElementById("btn").addEventListener("click", (ev) => {
+        // 获取 input 表单
+        const input = document.querySelector("input");
+        url = input.value;
+        if (url) {
+          if (CheckUrl(url)) {
+            createIframe(url);
+          } else {
+            alert("输入合法网址！");
+          }
+        }
+
+        // let iframeDoc = iframe.contentWindow.document;
+        // console.log(iframeDoc);
+      });
+
+      //此按钮打开文件
+      document.getElementById("open").addEventListener("click", (ev) => {
+        getlist(document.getElementById("app"));
+      });
+
+      //此按钮显示文件
+      document.getElementById("fileframe").addEventListener("click", (ev) => {
+        var files = document.getElementById("fs").files;
+        for (let i = 0; i < files.length; i++) {
+          let file = files[i];
+          if (file) {
+            if (file.name.endsWith(".html")) {
+              let reader = new FileReader();
+              reader.onload = function () {
+                // 这里是一个HTML文档FFF
+                let html = reader.result;
+                let domNode = new DOMParser().parseFromString(
+                  html,
+                  "text/html"
+                );
+                document.getElementById("app").innerHTML = "";
+                if(document.getElementById("wid").value == "web"){
+                  document.getElementById("app").style.width = 1520 + 'px';
+                }else{
+                  document.getElementById("app").style.width = 540 + 'px';
+                }
+                document.getElementById("app").appendChild(domNode.body);
+                document.getElementById("app").style.zoom = 0.35
+              };
+              reader.readAsText(file);
+            } else if (file.name.endsWith(".css")) {
+              let reader = new FileReader();
+              reader.onload = function () {
+                var head = document.head;
+                // 创建 style 元素
+                var styleElement = document.createElement("style");
+                //在创建好的style元素中，写上CSS
+                styleElement.innerHTML = reader.result;
+                //在head 中加上 style 元素
+                head.append(styleElement);
+              };
+              reader.readAsText(file);
+            } else {
+              alert("请打开合适文件！");
+            }
+          }
+        }
+      });
+
+      //获取root...
+      var body = document.body;
+      //函数调用,传入根节点
+      // getlist(body);
+    </script>
+  </body>
+</html>
