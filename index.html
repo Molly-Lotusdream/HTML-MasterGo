@@ -1,221 +1,532 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-  </head>
-  <style>
-    #iframe {
-      width: 100%;
-      height: 50%;
-    }
-  </style>
 
-  <body>
-    <div class="content">
-      <input type="text" />
-      <button id="btn">创建</button>
-    </div>
+<head>
+  <meta charset="utf-8" />
+</head>
+<style>
+  body {
+    margin: 0;
+
+  }
+
+  #container {
+    padding: 0 20px;
+    background-image: radial-gradient(circle, #a6c1ee, #bbc1f3, #d2c2f4, #e7c2f1, #fbc2eb);
+
+    height: 100%;
+  }
+
+  #fs {
+    display: none;
+  }
+
+  label {
+    /* background-color: #9ABCF4; */
+    background-color: #9795f0;
+    /* #9890e3; */
+    display: inline-block;
+    line-height: 30px;
+    width: 80px;
+    height: 30px;
+    font-size: 16px;
+    text-align: center;
+    color: #043474;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+  }
+
+  #svg_1 {
+    padding-top: 20px;
+  }
+
+  label:hover {
+    background-color: rgb(102, 177, 255);
+    cursor: pointer;
+  }
+
+  #fileinfo,
+  #fileframe {
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #9795f0;
+    /* #ebc0fd; */
+    color: #043474;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+
+  #fileinfo:hover,
+  #fileframe:hover {
+    background-color: rgb(102, 177, 255);
+    cursor: pointer;
+  }
+</style>
+
+<body>
+  <div id="container"> <svg id="svg_1" data-name="svg 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 274.48 29.69">
+      <path
+        d="M385.85,366.85c0,.25-.05.4-.16.46a1.17,1.17,0,0,1-.49.09c-.71.07-1.72.1-3,.1a26.31,26.31,0,0,1-3.24-.1c-.33-.07-.49-.23-.49-.48,0-.92.05-2.31.13-4.17s.14-3.25.14-4.18c0-.45-.13-.72-.39-.79a33.57,33.57,0,0,0-4.25-.14,34.31,34.31,0,0,0-4.29.14c-.26.06-.39.33-.39.79q0,1.38.09,4.11c.06,1.82.09,3.19.09,4.1a.55.55,0,0,1-.48.62,28.48,28.48,0,0,1-3.3.1,26.13,26.13,0,0,1-3-.1.53.53,0,0,1-.51-.55c0-1.26.06-3.17.19-5.73s.18-4.47.18-5.74-.06-3.41-.17-6.13-.18-4.77-.18-6.13a.33.33,0,0,1,.37-.38c.36,0,.91,0,1.64.05s1.28,0,1.65,0,.94,0,1.69,0,1.32-.05,1.7-.05c.2,0,.3.1.3.31,0,.88-.07,2.2-.2,3.95s-.19,3.07-.19,3.95c0,.41.11.65.34.72a70,70,0,0,0,8.85,0c.29-.07.43-.31.43-.72,0-.85,0-2.12-.13-3.83s-.12-3-.12-3.84c0-.36.15-.54.44-.54s.86,0,1.56.05,1.22,0,1.57,0,.86,0,1.55,0,1.23-.05,1.58-.05.51.14.51.42q0,2-.17,6.1t-.17,6.12c0,1.27.06,3.19.19,5.74S385.85,365.59,385.85,366.85Z"
+        transform="translate(-362.26 -342.56)" style="fill: #3970e3" />
+      <path
+        d="M400.72,362.25a14,14,0,0,1-.13,1.6,13.71,13.71,0,0,0-.13,1.57,1.19,1.19,0,0,1-.11.64,2,2,0,0,1-.58.41,10.24,10.24,0,0,1-5,1.25q-5.08,0-5.08-3.89c0-.77,0-1.94.08-3.49s.09-2.71.09-3.49c0-.51-.3-.77-.89-.77h-.23l-.23,0c-.45,0-.67-.16-.67-.48s0-.47.05-.86,0-.67,0-.86,0-.62,0-1.13-.05-.87-.05-1.12.38-.36,1.13-.39c.42,0,.65-.13.68-.35a12.27,12.27,0,0,0,.07-2.11c0-1.51-.07-2.23-.07-2.16q0-2,.39-2a6.28,6.28,0,0,1,1.35.21,12.08,12.08,0,0,0,1.39.26c.6.09,1.5.2,2.71.34.29,0,.44.12.44.3,0,.47,0,1.18-.12,2.12s-.11,1.67-.11,2.15.17.86.51.86,1,0,1.86,0,1.46-.06,1.88-.06q.39,0,.39.27a12,12,0,0,1-.09,1.21,12,12,0,0,0-.09,1.21c0,.29,0,.7,0,1.23s0,1,0,1.24-.17.36-.51.36-.63,0-1.18,0l-1.18,0H396q-.27,0-.27.78v1.24c0,.57,0,1,0,1.25a4.37,4.37,0,0,0,.33,2,2.06,2.06,0,0,0,1.87.76,5.42,5.42,0,0,0,1.25-.21,6,6,0,0,1,1.15-.2C400.6,361.86,400.72,362,400.72,362.25Z"
+        transform="translate(-362.26 -342.56)" style="fill: #3970e3" />
+      <path
+        d="M430.66,366.75c0,.41-.18.64-.53.68s-1.22.07-2.6.07a19.62,19.62,0,0,1-2.67-.1c-.35-.07-.53-.36-.53-.86s0-1.35.05-2.42.06-1.88.06-2.42c0-2.05,0-3.51-.07-4.37-.07-1.4-.74-2.1-2-2.1a2.55,2.55,0,0,0-1.64.7,2.31,2.31,0,0,0-.91,1.54c-.05.49-.07,1.93-.07,4.32,0,.55,0,1.39.05,2.51s.06,2,.06,2.52c0,.39-.17.58-.51.58H414c-.33,0-.49-.24-.49-.72s0-1.38,0-2.48.05-1.93.05-2.5,0-1.09,0-2,0-1.54,0-2c0-1.68-.64-2.52-1.91-2.52a3,3,0,0,0-1.67.6c-.66.44-1,.89-1,1.37,0,1.07,0,2.66,0,4.78s0,3.71,0,4.77a.86.86,0,0,1-.11.54,1,1,0,0,1-.54.14c-.53.05-1.36.07-2.5.07-.74,0-1.57,0-2.51-.1a1,1,0,0,1-.5-.12c-.06-.06-.08-.24-.08-.53,0-.94,0-2.34,0-4.21s0-3.27,0-4.21a56.62,56.62,0,0,0-.42-6.49,2.39,2.39,0,0,1,0-.31.41.41,0,0,1,.24-.41,6.45,6.45,0,0,1,1.46-.26l1.57-.16,1.38-.37a5.61,5.61,0,0,1,1.39-.25c.23,0,.34.41.35,1.23s.06,1.22.15,1.22a1.93,1.93,0,0,0,.4-.25,16.82,16.82,0,0,1,2.5-1.69,6.72,6.72,0,0,1,2.93-.65,5.7,5.7,0,0,1,2.88.72,3.76,3.76,0,0,1,1.85,2.27,7.37,7.37,0,0,1,2.57-2.12,6.75,6.75,0,0,1,3.18-.87A6.22,6.22,0,0,1,429,351a4,4,0,0,1,1.65,3.46c0,.62,0,1.55-.05,2.8s-.06,2.19-.06,2.81,0,1.85.06,3.33S430.66,366,430.66,366.75Z"
+        transform="translate(-362.26 -342.56)" style="fill: #3970e3" />
+      <path
+        d="M440.4,356.82q0,4.8,0,7.36c0,.27,0,.73.06,1.39s.05,1.06.05,1.39-.15.39-.44.44a19.73,19.73,0,0,1-2.85.14,15.61,15.61,0,0,1-2.69-.14.53.53,0,0,1-.44-.48v-.75c0-1,0-2.61,0-4.69s0-3.63,0-4.66q0-7.38,0-6.74a55.87,55.87,0,0,0-.44-6.69,2.13,2.13,0,0,1,0-.3q0-.39.45-.39h6.28c.29,0,.43.12.4.37l0,.32Q440.4,351,440.4,356.82Z"
+        transform="translate(-362.26 -342.56)" style="fill: #3970e3" />
+      <path
+        d="M462.65,366.31l-5.31-4.13a13,13,0,0,0-4.5-2.3.63.63,0,0,1-.52-.65c0-.24,0-.59.05-1.05s.05-.81.05-1.05,0-.5-.05-.92-.05-.73-.05-.94a.68.68,0,0,1,.52-.65,29.63,29.63,0,0,0,4.57-2.41,25.56,25.56,0,0,0,2.48-1.77l2.39-1.87a1.73,1.73,0,0,1,.44-.24c.28.11.69.71,1.21,1.79a6.16,6.16,0,0,1,.76,2.09.89.89,0,0,1-.25.49,12.36,12.36,0,0,1-6.55,4.15.67.67,0,0,0-.35.23.59.59,0,0,0,.31.25q5,2.06,6.63,4.3a1.18,1.18,0,0,1,.25.55,7.8,7.8,0,0,1-.85,2.28C463.31,365.69,462.9,366.31,462.65,366.31Z"
+        transform="translate(-362.26 -342.56)" style="fill: #9cb8f1" />
+      <path
+        d="M478.84,359.23a.69.69,0,0,1-.54.65,29.37,29.37,0,0,0-4.57,2.4c-.68.43-1.51,1-2.48,1.76-1.46,1.16-2.25,1.79-2.39,1.88a1.71,1.71,0,0,1-.44.25c-.25-.11-.62-.65-1.1-1.64a6,6,0,0,1-.73-1.91.94.94,0,0,1,.26-.51,12.65,12.65,0,0,1,6.4-4.47.73.73,0,0,0,.37-.23.74.74,0,0,0-.33-.24c-3.21-1.33-5.41-2.83-6.58-4.5a1,1,0,0,1-.24-.53,7.72,7.72,0,0,1,.86-2.2c.57-1.17,1-1.75,1.16-1.75l5.31,4.13a13.19,13.19,0,0,0,4.5,2.3.63.63,0,0,1,.54.65c0,.23,0,.58,0,1.05s-.05.81-.05,1,0,.51.05.92S478.84,359,478.84,359.23Z"
+        transform="translate(-362.26 -342.56)" style="fill: #9cb8f1" />
+      <path
+        d="M516.81,366.85c0,.37-.17.55-.51.55h-6.22c-.34,0-.51-.21-.51-.62,0-1.18,0-3,.13-5.32s.13-4.15.13-5.33c0-.34-.05-.52-.16-.54a50.53,50.53,0,0,0-2.35,5.43q-1.27,3.12-2.53,6.24c-.12.27-.27.43-.44.47s-.3,0-.71,0c-.61,0-1-.12-1.09-.35q-.94-1.93-2.49-5.63-1.65-3.9-2.48-5.64a.52.52,0,0,0-.16-.19.83.83,0,0,0-.12.51c0,1.15,0,2.87.09,5.17s.08,4,.08,5.16c0,.41-.16.62-.49.62h-5.87c-.23,0-.38,0-.43-.12a.71.71,0,0,1-.08-.39c0-1.28.06-3.2.19-5.76s.18-4.48.18-5.75-.06-3.91-.18-7.65c0-1-.06-2.42-.15-4.34l0-.3c0-.24.23-.35.74-.35s1.61,0,2.9-.06,2.25-.07,2.9-.07c.13,0,.31.25.54.74l5.13,11.27c.37.76.67,1.14.92,1.14s.4-.44.83-1.32q1.77-3.69,5.25-11.12c.2-.46.42-.69.65-.69s.85,0,1.54.05,1.2.06,1.56.06.74,0,1.34-.09,1.05-.09,1.34-.09.53.14.53.42c0,1.39,0,3.45-.15,6.2s-.15,4.81-.15,6.2.06,3.19.16,5.74S516.81,365.59,516.81,366.85Z"
+        transform="translate(-362.26 -342.56)" style="fill: #3970e3" />
+      <path
+        d="M537.62,358.61c0,.9,0,2.24.16,4s.16,3.11.16,4c0,.47-.21.72-.62.76-1.45.1-3.11.16-5,.16-.22,0-.37-.34-.45-1s-.16-1-.27-1a1.33,1.33,0,0,0-.37.3,5.9,5.9,0,0,1-4.22,2,7.09,7.09,0,0,1-5.68-2.7,9.15,9.15,0,0,1-2.12-6.05,9.46,9.46,0,0,1,2.2-6.54,7.93,7.93,0,0,1,6.25-2.57,5.35,5.35,0,0,1,4.36,1.94c.05.06.09.09.13.09s.22-.29.36-.86.29-.85.48-.85a15.1,15.1,0,0,1,2.48.37,21.89,21.89,0,0,1,2.49.6c.18.07.27.16.27.28a2.74,2.74,0,0,1-.06.37A39.08,39.08,0,0,0,537.62,358.61Zm-5.66.11a3.4,3.4,0,0,0-.94-2.47,3.25,3.25,0,0,0-2.45-1,3.21,3.21,0,0,0-2.44,1,3.62,3.62,0,0,0,0,4.92,3.18,3.18,0,0,0,2.39,1,3.25,3.25,0,0,0,2.44-1A3.39,3.39,0,0,0,532,358.72Z"
+        transform="translate(-362.26 -342.56)" style="fill: #3970e3" />
+      <path
+        d="M551.4,353.18a.8.8,0,0,1-.26.47,4.17,4.17,0,0,0-1-.12,3,3,0,0,0-1.74.46,1.66,1.66,0,0,0-.85,1.49,2.66,2.66,0,0,0,.9,1.57,16.89,16.89,0,0,1,1.67,1.91,5,5,0,0,1,.89,2.87,5.65,5.65,0,0,1-.35,1.9,3.73,3.73,0,0,1-1,1.61,11.88,11.88,0,0,1-3,1.9,8.82,8.82,0,0,1-3.46.81c-.24,0-.76-.64-1.57-1.91a7.73,7.73,0,0,1-1.23-2.33c0-.1.07-.17.2-.19l2.48-.46c1-.33,1.54-.86,1.54-1.61a3,3,0,0,0-.89-1.8c-1.07-1.18-1.63-1.81-1.67-1.88a4.52,4.52,0,0,1-.9-2.67,5.35,5.35,0,0,1,2.67-4.48,8.92,8.92,0,0,1,5.12-1.64c.18,0,.65.63,1.39,1.89A9.37,9.37,0,0,1,551.4,353.18Z"
+        transform="translate(-362.26 -342.56)" style="fill: #3970e3" />
+      <path
+        d="M565.69,362.25a14,14,0,0,1-.13,1.6,13.71,13.71,0,0,0-.13,1.57,1.22,1.22,0,0,1-.1.64,2.36,2.36,0,0,1-.58.41,10.31,10.31,0,0,1-5,1.25q-5.09,0-5.08-3.89c0-.77,0-1.94.09-3.49s.08-2.71.08-3.49c0-.51-.3-.77-.89-.77h-.23l-.23,0c-.45,0-.67-.16-.67-.48s0-.47.05-.86,0-.67,0-.86,0-.62,0-1.13-.05-.87-.05-1.12.38-.36,1.13-.39c.42,0,.65-.13.68-.35a12.27,12.27,0,0,0,.07-2.11c0-1.51-.07-2.23-.07-2.16q0-2,.39-2a6.2,6.2,0,0,1,1.35.21,12.08,12.08,0,0,0,1.39.26c.6.09,1.5.2,2.71.34.29,0,.44.12.44.3,0,.47,0,1.18-.12,2.12s-.11,1.67-.11,2.15.17.86.51.86,1,0,1.86,0,1.46-.06,1.88-.06q.39,0,.39.27a12,12,0,0,1-.09,1.21,12,12,0,0,0-.09,1.21c0,.29,0,.7,0,1.23s0,1,0,1.24-.17.36-.51.36-.63,0-1.18,0l-1.18,0H561q-.27,0-.27.78v1.24c0,.57,0,1,0,1.25a4.37,4.37,0,0,0,.33,2,2.06,2.06,0,0,0,1.87.76,5.42,5.42,0,0,0,1.25-.21,6,6,0,0,1,1.16-.2Q565.69,361.86,565.69,362.25Z"
+        transform="translate(-362.26 -342.56)" style="fill: #3970e3" />
+      <path
+        d="M583.64,357.85c0,1.19-.38,1.86-1.14,2-.13,0-1.34.15-3.64.38-1.38.15-3.44.34-6.19.55a2.5,2.5,0,0,0,1.5,1.74,5.24,5.24,0,0,0,2.32.49,6.63,6.63,0,0,0,3.14-.84l1.34-.85a5.24,5.24,0,0,1,1.24,1.8,6.54,6.54,0,0,1,.87,2.05c0,.08-.09.22-.26.41q-2.15,2.29-6.67,2.3a9.42,9.42,0,0,1-6.75-2.44,8.71,8.71,0,0,1-2.63-6.63,9.45,9.45,0,0,1,2.35-6.63,8.28,8.28,0,0,1,6.44-2.67,7.63,7.63,0,0,1,5.73,2.46A8.17,8.17,0,0,1,583.64,357.85Zm-6.15-1.07a2.73,2.73,0,0,0-.77-1.91,2.44,2.44,0,0,0-1.85-.83A2.22,2.22,0,0,0,573,355a3.25,3.25,0,0,0-.67,2c0,.32.17.48.5.48a31.16,31.16,0,0,0,4-.41C577.3,357,577.49,356.91,577.49,356.78Z"
+        transform="translate(-362.26 -342.56)" style="fill: #3970e3" />
+      <path
+        d="M597.23,356.45c0,.45-.25.68-.76.68-.22,0-.54,0-1,0s-.75,0-1,0a3.21,3.21,0,0,0-2,.45,2.45,2.45,0,0,0-.52,1.85c0,.5,0,1.27,0,2.29s0,1.79,0,2.3c0,.34,0,.84.07,1.52s.07,1.17.07,1.5-.19.44-.58.47c-.56.05-1.42.07-2.58.07s-2,0-2.68-.1c-.38,0-.58-.24-.58-.58,0-.94,0-2.34,0-4.21s0-3.27,0-4.21a25.26,25.26,0,0,0-.76-6.8,1.57,1.57,0,0,1,0-.27.35.35,0,0,1,.26-.35c.65-.07,1.59-.2,2.83-.39,1.85-.36,2.81-.54,2.87-.54.21,0,.34.37.4,1.11s.17,1.1.32,1.1c-.17,0,.31-.3,1.44-.92a6.82,6.82,0,0,1,3.25-.92q1,0,1,.42a14,14,0,0,1-.11,1.44q-.1,1-.12,1.44c0,.34,0,.79,0,1.36S597.23,356.23,597.23,356.45Z"
+        transform="translate(-362.26 -342.56)" style="fill: #3970e3" />
+      <path
+        d="M616.79,362.83c0,3.34-.7,5.73-2.11,7.19s-3.86,2.23-7.24,2.23a23.92,23.92,0,0,1-4-.47c-2.17-.4-3.25-.87-3.25-1.41q0-.33.75-3.45c.08-.32.21-.49.39-.49a.89.89,0,0,1,.19.07,11.47,11.47,0,0,0,5,1.34,5.52,5.52,0,0,0,2.51-.63c1-.51,1.52-1.14,1.52-1.9v-1.18a6.48,6.48,0,0,1-4.61,1.69,7,7,0,0,1-5.43-2.38,8.78,8.78,0,0,1-.09-11.19,6.87,6.87,0,0,1,5.38-2.31,4.76,4.76,0,0,1,4.06,1.9q.28.39.39.39c.1,0,.16-.21.16-.63,0-.94.1-1.41.31-1.41s1.2.1,3,.29,2.8.3,2.87.33a.43.43,0,0,1,.3.45c0,.81,0,2-.08,3.62s-.08,2.82-.08,3.62c0,.48,0,1.21,0,2.17S616.79,362.35,616.79,362.83ZM610.71,358a3.16,3.16,0,0,0-.85-2.22,2.76,2.76,0,0,0-2.14-.94,2.73,2.73,0,0,0-2.13.95,3.26,3.26,0,0,0-.85,2.24,3.14,3.14,0,0,0,.87,2.22,2.87,2.87,0,0,0,4.25,0A3.22,3.22,0,0,0,610.71,358Z"
+        transform="translate(-362.26 -342.56)" style="fill: #3970e3" />
+      <path
+        d="M636.75,358.75a8.86,8.86,0,0,1-2.46,6.5,9.5,9.5,0,0,1-12.8,0A8.48,8.48,0,0,1,619,359a9.29,9.29,0,0,1,2.39-6.62,8.48,8.48,0,0,1,6.47-2.54,8.63,8.63,0,0,1,6.43,2.49A8.8,8.8,0,0,1,636.75,358.75Zm-5.77,0a3.79,3.79,0,0,0-.86-2.45,2.75,2.75,0,0,0-2.23-1.07,2.86,2.86,0,0,0-2.29,1.09,3.95,3.95,0,0,0,0,4.87,2.83,2.83,0,0,0,2.29,1.09,2.78,2.78,0,0,0,2.26-1.09A3.76,3.76,0,0,0,631,358.75Z"
+        transform="translate(-362.26 -342.56)" style="fill: #3970e3" />
+    </svg>
     <hr />
+    <label for="fs">上传
+      <svg t="1680781773905" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        p-id="3295" width="16" height="16">
+        <path
+          d="M532.352 96c-138.688 0-260.992 88-312.32 218.304C111.808 337.344 32 437.248 32 554.688c0 135.168 105.152 245.312 235.648 245.312a32 32 0 1 0 0-64C173.184 736 96 655.168 96 554.688c0-92.608 65.92-169.664 151.68-180.16a32 32 0 0 0 26.496-21.632C312.32 238.08 415.424 160 532.352 160c145.6 0 265.92 120.32 273.152 273.472a32 32 0 0 0 23.68 29.44c57.472 15.296 98.816 70.336 98.816 134.4 0 76.928-58.944 138.688-130.88 138.688a32 32 0 1 0 0 64c107.968 0 194.88-91.072 194.88-202.688 0-84.672-50.432-159.104-124.288-188.928C848.768 232.32 705.6 96 532.352 96z m11.648 557.248V928a32 32 0 1 1-64 0v-274.752l-73.344 73.408a32 32 0 0 1-45.312-45.312l128-128a32 32 0 0 1 45.312 0l128 128a32 32 0 0 1-45.312 45.312L544 653.248z"
+          fill="#ffffff" p-id="3296"></path>
+      </svg>
+    </label>
+
     <input id="fs" type="file" multiple="multiple" />
-    <hr />
-    <button id="fileframe">显示</button>
-    <button id="open">绘制</button>
-    <select name="wid" id="wid">
-      <option value="mobile">移动</option>
-      <option value="web">PC</option>
-    </select>
-    <div id="app"></div>
-    <script>
-      let stack = [];
-      let list = [];
-      let baseY;
+    <div id="checkfile"></div>
 
-      function getlist(root) {
-        list = [];
-        traverse(root);
-        list = JSON.parse(JSON.stringify(list));
+    <hr>
+    <button id="fileinfo">显示</button>
+    <button id="fileframe">绘制</button>
+    <select name="wid" id="wid">
+      <option value="web">PC</option>
+      <option value="mobile">移动</option>
+    </select>
+    <hr />
+
+    <div style="color:#396A7C;font-size: 14px; width: 60%;"><br>
+      <svg t="1681479504256" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        p-id="2856" width="16" height="16">
+        <path d="M512 504.32m-314.88 0a12.3 12.3 0 1 0 629.76 0 12.3 12.3 0 1 0-629.76 0Z" p-id="2857" fill="#3970e3">
+        </path>
+        <path
+          d="M560.64 972.8l-94.72 0c-15.36 0-25.6 10.24-25.6 25.6 0 15.36 10.24 25.6 25.6 25.6l94.72 0c15.36 0 25.6-10.24 25.6-25.6C586.24 985.6 573.44 972.8 560.64 972.8z"
+          p-id="2858" fill="#3970e3"></path>
+        <path
+          d="M627.2 867.84l-230.4 0c-15.36 0-25.6 10.24-25.6 25.6 0 15.36 10.24 25.6 25.6 25.6l230.4 0c15.36 0 25.6-10.24 25.6-25.6C652.8 878.08 640 867.84 627.2 867.84z"
+          p-id="2859" fill="#3970e3"></path>
+        <path
+          d="M514.56 130.56c15.36 0 25.6-10.24 25.6-25.6L540.16 25.6c0-15.36-10.24-25.6-25.6-25.6s-25.6 10.24-25.6 25.6l0 79.36C488.96 117.76 499.2 130.56 514.56 130.56z"
+          p-id="2860" fill="#3970e3"></path>
+        <path
+          d="M243.2 235.52c10.24-10.24 10.24-25.6 0-35.84L189.44 143.36c-10.24-10.24-25.6-10.24-35.84 0C143.36 153.6 143.36 168.96 151.04 179.2l56.32 56.32C217.6 245.76 235.52 245.76 243.2 235.52z"
+          p-id="2861" fill="#3970e3"></path>
+        <path
+          d="M104.96 478.72 25.6 478.72c-15.36 0-25.6 10.24-25.6 25.6 0 15.36 10.24 25.6 25.6 25.6l79.36 0c15.36 0 25.6-10.24 25.6-25.6C130.56 488.96 117.76 478.72 104.96 478.72z"
+          p-id="2862" fill="#3970e3"></path>
+        <path
+          d="M998.4 481.28l-79.36 0c-15.36 0-25.6 10.24-25.6 25.6 0 15.36 10.24 25.6 25.6 25.6L998.4 532.48c15.36 0 25.6-10.24 25.6-25.6C1024 494.08 1013.76 481.28 998.4 481.28z"
+          p-id="2863" fill="#3970e3"></path>
+        <path
+          d="M844.8 140.8l-56.32 56.32c-10.24 10.24-10.24 25.6 0 35.84 10.24 10.24 25.6 10.24 35.84 0l56.32-56.32c10.24-10.24 10.24-25.6 0-35.84C870.4 130.56 852.48 130.56 844.8 140.8z"
+          p-id="2864" fill="#3970e3"></path>
+      </svg>
+      tip:<br>点击"上传"上传相关文件；<br>点击"显示"进行界面效果预览；<br>点击"绘制"开始设计稿转换；<br>支持PC端或移动端。
+    </div>
+    <div id="app" style="opacity: 1;background:white;overflow:auto;"></div>
+  </div>
+  <script>
+    let stack = [];
+    let list = [];
+    let filesToUpload = [];
+    let uint8ArrayList = [];
+    let baseY;
+    let svgNum = 0;
+    let imgNum = 0;
+    let setImg = 0;
+
+    // 图片信息设置完成
+    function transmit() {
+      if (setImg === imgNum) {
         parent.postMessage(list, "*");
+        svgNum = 0;
+        imgNum = 0;
+        setImg = 0;
+        filesToUpload = [];
+      } else {
+        console.log(setImg, imgNum);
+        setTimeout(transmit, 300);
+      }
+    }
+
+    // 获取信息
+    function getlist(root) {
+      list = [];
+      traverse(root);
+      list = JSON.parse(JSON.stringify(list));
+      list[1].svgNum = svgNum;
+      setTimeout(transmit, 300);
+    }
+
+    // XSS
+    function escapeHtml(unsafe) {
+      return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+    // CSRF
+    function addCsrfTokenToForm(formId) {
+      var token = "randomToken";
+      var form = document.getElementById(formId);
+      var input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "csrfToken";
+      input.value = token;
+      form.appendChild(input);
+    }
+
+    // 遍历节点
+    function traverse(node) {
+      // 记录id
+      list.push({
+        id: list.length,
+      });
+      if (node.nodeName == "SCRIPT") {
+        return;
       }
 
-      function traverse(node) {
-        if (node.nodeName == "SCRIPT") {
-          return;
-        }
-        
-        //获取node信息
-        let nodeinfo = Object();
-        nodeinfo.nodeName = node.nodeName;
-        nodeinfo.lastElementChild = node.lastElementChild + "";
-        nodeinfo.src = node.getAttribute("src");
-        nodeinfo.width = node.getAttribute("width");
-        nodeinfo.height = node.getAttribute("height");
-        nodeinfo.x = node.getAttribute("x");
-        nodeinfo.y = node.getAttribute("y");
-        nodeinfo.fill = node.getAttribute("fill");
-        nodeinfo.style = node.getAttribute("style");
-        nodeinfo.href = node.getAttribute("href");
-        nodeinfo.text = node.innerText;
+      //获取node信息
+      let nodeinfo = Object();
+      nodeinfo.nodeName = node.nodeName;
+      nodeinfo.lastElementChild = node.lastElementChild + "";
+      nodeinfo.src = node.getAttribute("src");
+      nodeinfo.style = node.getAttribute("style");
+      nodeinfo.href = node.getAttribute("href");
+      nodeinfo.text = node.innerText;
+      if (nodeinfo.nodeName == "svg") {
+        nodeinfo.nodeName = "SVG";
+        nodeinfo.outerHTML = node.outerHTML;
+        nodeinfo.lastElementChild = "";
+        svgNum++;
+      }
+      if (nodeinfo.nodeName == "IMG") {
+        imgNum++;
+        node.setAttribute("crossOrigin", "anonymous");
+        getBase64Image(node, list.length - 1, nodeinfo.src);
+      }
+      //...
 
-        //...
-
-        const rect = node.getBoundingClientRect();
-        // 获取css信息
-        let cssinfo = Object();
-        let cs = window.getComputedStyle(node);
-        cssinfo.padding = cs.getPropertyValue("padding");
-        cssinfo.margin = cs.getPropertyValue("margin");
-        cssinfo.x = cs.getPropertyValue("x");
-        cssinfo.y = cs.getPropertyValue("y");
-        cssinfo.width = rect.width;
-        cssinfo.height = rect.height;
-        cssinfo.r = cs.getPropertyValue("color").split("(")[1].split(",")[0];
-        cssinfo.g = cs.getPropertyValue("color").split("(")[1].split(",")[1];
-        cssinfo.b = cs
-          .getPropertyValue("color")
+      const rect = node.getBoundingClientRect();
+      // 获取css信息
+      let cssinfo = Object();
+      let cs = window.getComputedStyle(node);
+      cssinfo.width = rect.width;
+      cssinfo.height = rect.height;
+      // 字体样式信息
+      cssinfo.fontsize = cs.getPropertyValue("font-size");
+      cssinfo.fontweight = cs.getPropertyValue("font-weight");
+      cssinfo.textalign = cs.getPropertyValue("text-align");
+      cssinfo.paddingleft = cs.getPropertyValue("padding-left");
+      cssinfo.postion = cs.getPropertyValue("postion");
+      // 文字颜色
+      cssinfo.r = cs.getPropertyValue("color").split("(")[1].split(",")[0];
+      cssinfo.g = cs.getPropertyValue("color").split("(")[1].split(",")[1];
+      cssinfo.b = cs
+        .getPropertyValue("color")
+        .split("(")[1]
+        .split(",")[2]
+        .split(")")[0];
+      cssinfo.a = cs.getPropertyValue("opacity");
+      // 背景颜色
+      cssinfo.bkr = cs
+        .getPropertyValue("background-color")
+        .split("(")[1]
+        .split(",")[0]
+        .trim();
+      cssinfo.bkg = cs
+        .getPropertyValue("background-color")
+        .split("(")[1]
+        .split(",")[1]
+        .trim();
+      cssinfo.bkb = cs
+        .getPropertyValue("background-color")
+        .split("(")[1]
+        .split(",")[2]
+        .trim();
+      if (cssinfo.bkb.indexOf(")") > 0) {
+        cssinfo.bkb = cssinfo.bkb.split(")")[0];
+        cssinfo.bka = "1";
+      } else {
+        cssinfo.bka = cs
+          .getPropertyValue("background-color")
           .split("(")[1]
-          .split(",")[2]
-          .split(")")[0];
-        cssinfo.a = cs.getPropertyValue("opacity");
-        cssinfo.background = cs.getPropertyValue("background");
-        cssinfo.border = cs.getPropertyValue("border");
-        cssinfo.fontsize = cs.getPropertyValue("font-size");
-        cssinfo.lineheight = cs.getPropertyValue("line-height");
-        cssinfo.fontweight = cs.getPropertyValue("font-weight");
-        cssinfo.postion = cs.getPropertyValue("postion");
-        
-        if (node.nodeName == "BODY") {
-          baseY = rect.y;
-          cssinfo.top = 0;
-        }else {
-          cssinfo.top = rect.y - baseY;
-        }
-        cssinfo.left = rect.x;
-        cssinfo.textalign = cs.getPropertyValue("text-align");
-        cssinfo.display = cs.getPropertyValue("display");
-        cssinfo.boxshadow = cs.getPropertyValue("box-shadow");
-        cssinfo.stroke = cs.getPropertyValue("stroke");
-        cssinfo.fill = cs.getPropertyValue("fill");
-        cssinfo.strokewidth = cs.getPropertyValue("stroke-width");
-        // ...
+          .split(",")[3]
+          .split(")")[0]
+          .trim();
+      }
 
-        //记录信息
-        list.push({
-          id: list.length,
-          nodeinfo: nodeinfo,
-          cssinfo: cssinfo,
-        });
+      // 边框样式信息
+      cssinfo.border = cs.getPropertyValue("border");
+      cssinfo.borderBottomLeftRadius = parseInt(
+        cs.getPropertyValue("border-bottom-left-radius")
+      );
+      cssinfo.borderBottomRightRadius = parseInt(
+        cs.getPropertyValue("border-bottom-right-radius")
+      );
+      cssinfo.borderTopLeftRadius = parseInt(
+        cs.getPropertyValue("border-top-left-radius")
+      );
+      cssinfo.borderTopRightRadius = parseInt(
+        cs.getPropertyValue("border-top-right-radius")
+      );
 
-        //获取父节点id
-        if (list.length > 0) {
-          list[list.length - 1].pid = stack[stack.length - 1];
-        }
+      cssinfo.bdw = parseInt(cssinfo.border.split(" ")[0]);
+      cssinfo.bdr = cssinfo.border.split("(")[1].split(",")[0].trim();
+      cssinfo.bdg = cssinfo.border.split("(")[1].split(",")[1].trim();
+      cssinfo.bdb = cssinfo.border.split("(")[1].split(",")[2].trim();
+      if (cssinfo.bdb.indexOf(")") > 0) {
+        cssinfo.bdb = cssinfo.bdb.split(")")[0];
+        cssinfo.bda = "1";
+      } else {
+        cssinfo.bda = cssinfo.border
+          .split("(")[1]
+          .split(",")[3]
+          .split(")")[0]
+          .trim();
+      }
 
-        // 入栈
-        stack.push(list.length - 1);
+      if (cssinfo.fontweight == "bold") {
+        cssinfo.fontweight = 600;
+      } else if (cssinfo.fontweight == "bolder") {
+        cssinfo.fontweight = 1000;
+      }
 
-        // 遍历子节点
+      if (node.nodeName == "BODY") {
+        baseY = rect.y;
+        cssinfo.top = 0;
+      } else {
+        cssinfo.top = rect.y - baseY;
+      }
+      cssinfo.left = rect.x;
+      cssinfo.textalign = cs.getPropertyValue("text-align");
+      cssinfo.display = cs.getPropertyValue("display");
+      if (cssinfo.display == "none") cssinfo.a = "1";
+      cssinfo.boxshadow = cs.getPropertyValue("box-shadow");
+      // ...
+
+      //记录信息
+      list[list.length - 1].nodeinfo = nodeinfo;
+      list[list.length - 1].cssinfo = cssinfo;
+
+      //获取父节点id
+      if (list.length > 0) {
+        list[list.length - 1].pid = stack[stack.length - 1];
+      }
+
+      // 入栈
+      stack.push(list.length - 1);
+
+      // 遍历子节点
+      if (node.nodeName != "svg") {
         for (let i = 0; i < node.children.length; i++) {
           traverse(node.children[i]);
         }
-        // 出栈
-        stack.pop();
       }
 
-      //验证url正确性
-      function CheckUrl(url) {
-        let reg = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
-        return !!reg.test(url);
-      }
+      // 出栈
+      stack.pop();
+    }
 
-      //根据url创建子窗口 没用到
-      function createIframe(url) {
-        var iframe = document.getElementById("iframe");
-        if (iframe) {
-          // 如果存在，则替换地址
-          iframe.src = url;
+    // 暂存文件
+    function handleFileSelect(evt) {
+      let files = evt.target.files;
+      let filestr = "";
+      for (let i = 0, f; (f = files[i]); i++) {
+        // 这里可以自定义筛选符合要求的文件类型和目录结构
+        if (
+          f.name.endsWith(".html") ||
+          f.name.endsWith(".css") ||
+          f.name.endsWith(".jpg") ||
+          f.name.endsWith(".png") ||
+          f.name.endsWith(".bmp") ||
+          f.name.endsWith(".webp") ||
+          f.name.endsWith(".jpeg") ||
+          f.name.endsWith(".gif")
+        ) {
+          filesToUpload.push(f); // 暂存文件
+        }
+      }
+      for (let i = 0; i < filesToUpload.length; i++) {
+        if (i == 0) {
+          filestr += filesToUpload[i].name;
         } else {
-          // 不存在则新建
-          iframe = document.createElement("iframe");
-          iframe.id = "iframe";
-          iframe.src = url;
-          document.body.appendChild(iframe);
+          filestr += "\n" + filesToUpload[i].name;
         }
-        iframe.onload = function () {
-          list = [];
-          // getlist(iframe.contentWindow.document.documentElement);
-        };
       }
+      document.getElementById("checkfile").innerText = filestr;
+    }
 
-      // 此按钮打开url
-      document.getElementById("btn").addEventListener("click", (ev) => {
-        // 获取 input 表单
-        const input = document.querySelector("input");
-        url = input.value;
-        if (url) {
-          if (CheckUrl(url)) {
-            createIframe(url);
-          } else {
-            alert("输入合法网址！");
-          }
+    // 处理图片
+    function getBase64Image(img, id, src) {
+      img.onload = function () {
+        let canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        let ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+        let dataURL = canvas.toDataURL("image/png");
+        let base64String = dataURL.split(",")[1];
+        let arr = base64ToUint8Array(base64String);
+        list.find((ele) => ele.id == id).nodeinfo.byteArray = arr;
+        setImg++;
+      };
+    }
+    function base64ToUint8Array(base64String) {
+      try {
+        let padding = "=".repeat((4 - (base64String.length % 4)) % 4);
+        let base64 = (base64String + padding)
+          .replace(/-/g, "+")
+          .replace(/_/g, "/");
+        let rawData = atob(base64);
+
+        let outputArray = new Uint8Array(rawData.length);
+        for (let i = 0; i < rawData.length; ++i) {
+          outputArray[i] = rawData.charCodeAt(i);
         }
+        return outputArray;
+      } catch (e) {
+        throw e;
+      }
+    }
 
-        // let iframeDoc = iframe.contentWindow.document;
-        // console.log(iframeDoc);
-      });
+    // 此按钮上传文件
+    document
+      .getElementById("fs")
+      .addEventListener("change", handleFileSelect, false);
 
-      //此按钮打开文件
-      document.getElementById("open").addEventListener("click", (ev) => {
-        getlist(document.getElementById("app"));
-      });
+    document.getElementById("fileinfo").addEventListener("click", (ev) => {
+      let files = filesToUpload;
+      for (let i = 0; i < files.length; i++) {
+        let file = files[i];
+        if (file) {
+          if (file.name.endsWith(".html")) {
+            let reader = new FileReader();
+            reader.onload = function () {
+              let html = reader.result;
+              let domNode = new DOMParser().parseFromString(
+                html,
+                "text/html"
+              );
+              if (document.getElementById("wid").value == "web") {
+                document.getElementById("app").style.zoom = 0.2;
+                document.getElementById("app").style.width =
+                  screen.width + "px";
+              } else {
+                document.getElementById("app").style.zoom = 0.6;
+                document.getElementById("app").style.width = 540 + "px";
+              }
+              document.getElementById("app").innerHTML = "";
+              document.getElementById("app").appendChild(domNode.body);
+              // XSS
+              let inputHTML = document.getElementById("app").innerHTML;
+              let safeHTML = escapeHtml(inputHTML);
+              if (inputHTML != safeHTML) {
+                console.log("有XSS风险");
+              }
+              // CSRF
+              addCsrfTokenToForm("app");
 
-      //此按钮显示文件
-      document.getElementById("fileframe").addEventListener("click", (ev) => {
-        var files = document.getElementById("fs").files;
-        for (let i = 0; i < files.length; i++) {
-          let file = files[i];
-          if (file) {
-            if (file.name.endsWith(".html")) {
-              let reader = new FileReader();
-              reader.onload = function () {
-                // 这里是一个HTML文档FFF
-                let html = reader.result;
-                let domNode = new DOMParser().parseFromString(
-                  html,
-                  "text/html"
-                );
-                document.getElementById("app").innerHTML = "";
-                if(document.getElementById("wid").value == "web"){
-                  document.getElementById("app").style.width = 1520 + 'px';
-                }else{
-                  document.getElementById("app").style.width = 540 + 'px';
+              setTimeout(() => {
+                let nodes = document.getElementsByTagName("img");
+                for (let i = 0; i < nodes.length; i++) {
+                  let node = nodes[i];
+                  let src = node.getAttribute("src");
+                  let index = src.lastIndexOf("\/");
+                  src = src.substring(index + 1, src.length);
+                  let item = uint8ArrayList.find((item) => item.name == src);
+                  if (item) {
+                    node.setAttribute("src", item.src);
+                  }
                 }
-                document.getElementById("app").appendChild(domNode.body);
-                document.getElementById("app").style.zoom = 0.35
+              }, 500);
+            };
+            reader.readAsText(file);
+          } else if (file.name.endsWith(".css")) {
+            let reader = new FileReader();
+            reader.onload = function () {
+              let head = document.head;
+              // 创建 style 元素
+              let styleElement = document.createElement("style");
+              //在创建好的style元素中，添加CSS
+              styleElement.innerHTML = reader.result;
+              //在head 中加上 style 元素
+              head.append(styleElement);
+            };
+            reader.readAsText(file);
+          } else if (
+            file.name.endsWith(".jpg") ||
+            file.name.endsWith(".png") ||
+            file.name.endsWith(".bmp") ||
+            file.name.endsWith(".webp") ||
+            file.name.endsWith(".jpeg") ||
+            file.name.endsWith(".gif")
+          ) {
+            let reader = new FileReader();
+            //使用readAsDataURL将图片文件转为data url的形式
+            reader.readAsDataURL(file);
+            reader.onload = function () {
+              let imgInfo = {
+                src: reader.result,
+                name: file.name,
               };
-              reader.readAsText(file);
-            } else if (file.name.endsWith(".css")) {
-              let reader = new FileReader();
-              reader.onload = function () {
-                var head = document.head;
-                // 创建 style 元素
-                var styleElement = document.createElement("style");
-                //在创建好的style元素中，写上CSS
-                styleElement.innerHTML = reader.result;
-                //在head 中加上 style 元素
-                head.append(styleElement);
-              };
-              reader.readAsText(file);
-            } else {
-              alert("请打开合适文件！");
-            }
+              uint8ArrayList.push(imgInfo);
+            };
           }
         }
-      });
+      }
+      document.getElementById("checkfile").innerText = "";
+    });
 
-      //获取root...
-      var body = document.body;
-      //函数调用,传入根节点
-      // getlist(body);
-    </script>
-  </body>
+    //此按钮绘制文件
+    document.getElementById("fileframe").addEventListener("click", (ev) => {
+      setTimeout(() => {
+        getlist(document.getElementById("app"));
+      }, 500);
+    });
+  </script>
+</body>
+
 </html>

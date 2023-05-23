@@ -1,6 +1,6 @@
 {
-  "name": "test",
+  "name": "HTML-MasterGo",
   "id": 87453744592014,
-  "main": "indexc.js",
+  "main": "index.js",
   "ui": "index.html"
 }
